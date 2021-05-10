@@ -7,8 +7,6 @@ import what.the.springcore.member.Member;
 import what.the.springcore.member.MemberService;
 import what.the.springcore.member.MemberServiceImpl;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class OrderServiceTest {
 
     MemberService memberService = new MemberServiceImpl();
