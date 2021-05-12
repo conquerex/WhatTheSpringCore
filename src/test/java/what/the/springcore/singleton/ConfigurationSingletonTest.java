@@ -30,4 +30,17 @@ public class ConfigurationSingletonTest {
         assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
+
+    @Test
+    void configurationDeep() {
+        // AppConfig에서 @Configuration를 제거하면 싱글톤이 깨진다
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        // 순수한 클래스라면
+        // what.the.springcore.AppConfig
+        // 그런데 그렇게 안나옴?!?!?
+        System.out.println("bean = " + bean.getClass());
+    }
+
 }
