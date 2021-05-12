@@ -15,7 +15,8 @@ import what.the.springcore.member.MemoryMemberRepository;
 )
 public class AutoAppConfig {
 
-    @Bean(name = "memoryMemberRepository")
+    // 아래 기입하면 'BeanDefinitionOverrideException'이 발생한다.
+    // @Bean(name = "memoryMemberRepository")
     public MemberRepository memberRepository() {
         // 수동이 우선권을 가진다.
         return new MemoryMemberRepository();

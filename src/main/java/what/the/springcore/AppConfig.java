@@ -20,7 +20,7 @@ public class AppConfig {
         System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
- 
+
     @Bean
     public MemberRepository memberRepository() {
         System.out.println("call AppConfig.memberRepository");
@@ -35,8 +35,8 @@ public class AppConfig {
 
     @Bean
     public DiscountPolicy discountPolicy() {
-//        return new FixDiscountPolicy();
-        return new RateDiscountPolicy();
+        return new FixDiscountPolicy();
+//        return new RateDiscountPolicy();
     }
 
 }
