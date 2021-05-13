@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import what.the.springcore.annotation.MainDiscountPolicy;
 import what.the.springcore.discount.DiscountPolicy;
 import what.the.springcore.member.Member;
 import what.the.springcore.member.MemberRepository;
@@ -31,10 +32,13 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+
+
 /*
     // 수정자 주입 : 아래 set 메서드가 2개 있을 때 위 생성자 주입은 필요없다.
     @Autowired(required = false)
